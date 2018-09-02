@@ -6,6 +6,7 @@ const config = require("config");
 const genres = require("./routes/genres");
 const home = require("./routes/home");
 const customers = require("./routes/customers");
+const movies = require("./routes/movies");
 const logger = require("./middleware/logger");
 const mongoose = require("mongoose");
 
@@ -26,8 +27,9 @@ app.use(
 );
 app.use(helmet());
 app.use("/api/genres", genres);
-app.use("/", home);
 app.use("/api/customers", customers);
+app.use("/api/movies", movies);
+app.use("/", home);
 
 if (app.get("env") === "development") {
   app.use(morgan("tiny"));
