@@ -1,0 +1,27 @@
+GET http://localhost:3000/api/customers
+
+###
+
+GET http://localhost:3000/api/customers/5b8b9c6f9fa17a4ee5bf7389
+
+###
+
+POST http://localhost:3000/api/customers
+content-type: application/json
+
+{
+  "name":"alastir cook",
+  "phone":"12345678999"
+}
+
+###
+PUT http://localhost:3000/api/customers/5b8ba6b71acc5f5473433f38
+content-type: application/json
+
+{
+  "name": "andrew",
+  "phone": "0987654321"
+}
+
+###
+DELETE http://localhost:3000/api/customers/5b8ba6b71acc5f5473433f38
