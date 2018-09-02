@@ -2,7 +2,7 @@ GET http://localhost:3000/api/genres
 
 ###
 
-GET http://localhost:3000/api/genres/1
+GET http://localhost:3000/api/genres/5b8b9c6f9fa17a4ee5bf7389
 
 ###
 
@@ -14,12 +14,12 @@ content-type: application/json
 }
 
 ###
-PUT http://localhost:3000/api/genres/1
+PUT http://localhost:3000/api/genres/5b8b9c6f9fa17a4ee5bf7389
 content-type: application/json
 
 {
-  "name":"Crime"
+  "name":"Action"
 }
 
 ###
-DELETE http://localhost:3000/api/genres/1
+DELETE http://localhost:3000/api/genres/5b8b9c6f9fa17a4ee5bf7389

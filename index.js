@@ -6,15 +6,23 @@ const config = require("config");
 const genres = require("./routes/genres");
 const home = require("./routes/home");
 const logger = require("./middleware/logger");
+const mongoose = require("mongoose");
+
+mongoose
+  .connect("mongodb://localhost/vidly")
+  .then(() => console.log("Connected to the database"))
+  .catch(err => console.error("Error connecting to the database...", err));
 
 app.set("view engine", "pug");
 app.set("views", "./views");
 
 app.use(express.json());
 app.use(express.static("public"));
-app.use(express.urlencoded({
-  extended: true
-}));
+app.use(
+  express.urlencoded({
+    extended: true
+  })
+);
 app.use(helmet());
 app.use("/api/genres", genres);
 app.use("/", home);
