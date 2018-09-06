@@ -38,10 +38,15 @@ router.post("/", async (req, res) => {
       dailyRentalRate: movie.dailyRentalRate
     }
   });
-  rental = await rental.save();
 
-  movie.numberInStock--;
-  movie.save();
+  try {
+    new Fawn.Task()
+      .save("rentals", rental)
+      .update("movies", { _id: movie._id }, { $inc: { numberInStock: -1 } })
+      .run();
+  } catch (e) {
+    res.status(500).send("Something Failed");
+  }
 
   res.send(rental);
 });
